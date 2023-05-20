@@ -31,7 +31,7 @@ class Item:
     @name.setter
     def name(self, name):
         if len(name) > 10:
-            print('Длина наименования товара должна быть не больше 10 символов')
+            raise Exception('длина наименования товара должна быть не больше 10 симвовов')
         else:
             self.__name = name
 
@@ -48,16 +48,17 @@ class Item:
 
     @staticmethod
     def string_to_number(str_number):
-        if '.' in str_number:
-            try:
+        try:
+            if any(i for i in str_number if i.isalpha()):
+                return f'{str_number} не должно содержать буквы'
+            if any(char in str_number for char in ',;<>@"#$%^&*()!=+/?'):
+                return f'{str_number} не должно содержать символы'
+            if str_number.count('.') == 1:
                 return float(str_number)
-            except ValueError:
-                return f'{str_number} невозможно превратить в число'
-        else:
-            try:
+            if str_number.isdigit:
                 return int(str_number)
-            except ValueError:
-                return f'{str_number} невозможно превратить в число'
+        except Exception:
+            raise Exception()
 
     def calculate_total_price(self) -> float:
         """

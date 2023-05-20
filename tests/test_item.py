@@ -29,3 +29,38 @@ def test_apply_discount(item):
 def test_reset_discount(item):
     Item.pay_rate = 1.0
     assert Item.pay_rate == 1.0
+
+
+def test_name_setter_incorrect(item):
+    with pytest.raises(Exception):
+        item.name = "FULLHDTV_stopwatchingtv"
+
+
+def test_name_setter_correct(item):
+    item.name = 'PS4'
+    assert item.name == 'PS4'
+
+
+def test_instantiate_from_csv():
+    Item.all = []
+    Item.instantiate_from_csv()
+    assert Item.all[0].name == 'Смартфон'
+    assert Item.all[3].price == 50.0
+    assert Item.all[4].quantity == 5
+
+
+def test_str_number_int_float(item):
+    assert item.string_to_number('9') == 9
+    assert item.string_to_number('9.0') == 9.0
+
+
+def test_str_number(item):
+    assert item.string_to_number('12.3e') == '12.3e не должно содержать буквы'
+    assert item.string_to_number('12,3') == '12,3 не должно содержать символы'
+    assert item.string_to_number('12.3') == 12.3
+    assert item.string_to_number('12') == 12
+
+
+def test_str_number_exception(item):
+    with pytest.raises(Exception):
+        item.string_to_number('12.]')
