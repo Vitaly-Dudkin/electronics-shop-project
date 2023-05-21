@@ -64,3 +64,13 @@ def test_str_number(item):
 def test_str_number_exception(item):
     with pytest.raises(Exception):
         item.string_to_number('12.]')
+
+
+def test_repr(item):
+    item1 = Item("Смартфон", 10000, 20)
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+
+
+def test_str(item):
+    item1 = Item("Смартфон", 10000, 20)
+    assert str(item1) == 'Смартфон'
