@@ -1,7 +1,8 @@
+
+from src.phone import *
 from csv import DictReader
 import os.path
 
-from src.phone import *
 PATH_TO_CVS_FILE = os.path.join(os.path.dirname(__file__), "items.csv")
 
 
@@ -76,7 +77,7 @@ class Item:
         self.price *= Item.pay_rate
 
     def __repr__(self):
-        return f"Item('{self.__name}', {self.price}, {self.quantity})"
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
 
     def __str__(self):
         return self.__name
