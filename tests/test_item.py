@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.item import Item
+from src.item import *
 
 
 @pytest.fixture
@@ -74,3 +74,12 @@ def test_repr(item):
 def test_str(item):
     item1 = Item("Смартфон", 10000, 20)
     assert str(item1) == 'Смартфон'
+
+
+def test_add(item):
+    phone = Phone('IPhone', 12000, 5, 2)
+    assert item + phone == 10
+
+
+def test_add_incorrect(item):
+    assert item + 5 == 'Данный ЭК можно сложить только с ЭК `Phone`'

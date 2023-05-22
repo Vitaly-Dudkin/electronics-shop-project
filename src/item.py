@@ -1,3 +1,5 @@
+from src.phone import *
+
 from csv import DictReader
 import os.path
 
@@ -11,7 +13,7 @@ class Item:
     pay_rate = 1.0
     all = []
 
-    def __init__(self, name: str, price: float, quantity: int) -> None:
+    def __init__(self, name: str, price: float, quantity: int):
         """
         Создание экземпляра класса item.
 
@@ -79,3 +81,7 @@ class Item:
 
     def __str__(self):
         return self.__name
+
+    def __add__(self, other):
+        if isinstance(other, Phone):
+            return self.quantity + other.quantity
