@@ -1,5 +1,5 @@
-from src.item import Item
-from src.phone import Phone
+from src.item import *
+from src.phone import *
 
 if __name__ == '__main__':
 

@@ -80,6 +80,6 @@ def test_add(item):
     phone = Phone('IPhone', 12000, 5, 2)
     assert item + phone == 10
 
-
+#
 def test_add_incorrect(item):
     assert item + 5 == 'Данный ЭК можно сложить только с ЭК `Phone`'

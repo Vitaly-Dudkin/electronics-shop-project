@@ -1,8 +1,7 @@
-from src.phone import *
-
 from csv import DictReader
 import os.path
 
+from src.phone import *
 PATH_TO_CVS_FILE = os.path.join(os.path.dirname(__file__), "items.csv")
 
 
