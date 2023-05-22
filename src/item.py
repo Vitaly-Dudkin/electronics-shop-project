@@ -85,3 +85,5 @@ class Item:
     def __add__(self, other):
         if isinstance(other, Phone):
             return self.quantity + other.quantity
+        else:
+            return "Данный ЭК можно сложить только с ЭК `Phone`"

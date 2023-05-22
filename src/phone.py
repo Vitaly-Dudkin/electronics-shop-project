@@ -29,3 +29,6 @@ class Phone:
     def __add__(self, other):
         if isinstance(other, Phone) or isinstance(other, Item):
             return self.quantity + other.quantity
+        else:
+            return 'Данный ЭК можно сложить только с ЭК `Phone` или Item'
+

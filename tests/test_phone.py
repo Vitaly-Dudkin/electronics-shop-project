@@ -20,10 +20,5 @@ def test_add_phone(phone):
     assert phone + phone == 10
 
 
-# def test_add_item_phone(phone):
-#     item1 = Item("Смартфон", 10000, 20)
-#     assert item1 + phone == 25
-
-#
-# def test_add_incorrect(phone):
-#     assert phone + "wee" == 'Сложения ЭК `Phone` возможно только между собой или с ЭК `Item`'
+def test_add_incorrect(phone):
+    assert phone + "wee" == "Данный ЭК можно сложить только с ЭК `Phone` или Item"
