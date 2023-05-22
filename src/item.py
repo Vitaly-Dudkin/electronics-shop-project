@@ -1,5 +1,5 @@
 
-from src.phone import *
+
 from csv import DictReader
 import os.path
 
@@ -83,7 +83,7 @@ class Item:
         return self.__name
 
     def __add__(self, other):
-        if isinstance(other, Phone):
+        if isinstance(other, Item):
             return self.quantity + other.quantity
         else:
             return "Данный ЭК можно сложить только с ЭК `Phone`"
