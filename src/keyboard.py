@@ -23,6 +23,6 @@ class LanguageMixin:
 
 
 class KeyBoard(Item, LanguageMixin):
-    def __init__(self, name: str, price: float, quantity: int, language='EN'):
+    def __init__(self, name: str, price: float, quantity: int):
         super().__init__(name, price, quantity)
-        self.__language = language
+
