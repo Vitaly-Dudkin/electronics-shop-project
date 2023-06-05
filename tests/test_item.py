@@ -84,3 +84,5 @@ def test_add(item):
 
 def test_add_incorrect(item):
     assert item + 5 == 'Данный ЭК можно сложить только с ЭК `Phone`'
+
+
