@@ -40,9 +40,9 @@ class Item:
             self.__name = name
 
     @classmethod
-    def instantiate_from_csv(cls):
+    def instantiate_from_csv(cls, path=PATH_TO_CVS_FILE):
         try:
-            with open(PATH_TO_CVS_FILE, encoding='cp1251') as csv_file:
+            with open(path, encoding='cp1251') as csv_file:
                 data_cvs = DictReader(csv_file)
 
                 for row in data_cvs:

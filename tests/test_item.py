@@ -2,7 +2,6 @@
 
 import pytest
 
-from src.item import *
 from src.phone import *
 
 
@@ -50,6 +49,11 @@ def test_instantiate_from_csv():
     assert Item.all[4].quantity == 5
 
 
+def test_instantiate_not_found():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv('file_not_exist')
+
+
 def test_str_number_int_float(item):
     assert item.string_to_number('9') == 9
     assert item.string_to_number('9.0') == 9.0
@@ -84,5 +88,3 @@ def test_add(item):
 
 def test_add_incorrect(item):
     assert item + 5 == 'Данный ЭК можно сложить только с ЭК `Phone`'
-
-
